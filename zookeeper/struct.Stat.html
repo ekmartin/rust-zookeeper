@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Stat` struct in crate `zookeeper`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Stat">
+
+    <title>zookeeper::Stat - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Stat</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>zookeeper</a></p><script>window.sidebarCurrent = {name: 'Stat', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>zookeeper</a>::<wbr><a class="struct" href=''>Stat</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/zookeeper/data.rs.html#16-39' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Stat {
+    pub czxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+    pub mzxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+    pub ctime: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+    pub mtime: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+    pub version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    pub cversion: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    pub aversion: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    pub ephemeral_owner: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+    pub data_length: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    pub num_children: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
+    pub pzxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>,
+}</pre><div class='docblock'><p>Statistics about a znode, similar to the UNIX <code>stat</code> structure.</p>
+
+<h1 id='time-in-zookeeper' class='section-header'><a href='#time-in-zookeeper'>Time in ZooKeeper</a></h1>
+<p>The concept of time is tricky in distributed systems. ZooKeeper keeps track of time in a number
+of ways.</p>
+
+<ul>
+<li><strong>zxid</strong>: Every change to a ZooKeeper cluster receives a stamp in the form of a <em>zxid</em>
+(ZooKeeper Transaction ID). This exposes the total ordering of all changes to ZooKeeper. Each
+change will have a unique <em>zxid</em> -- if <em>zxid:a</em> is smaller than <em>zxid:b</em>, then the associated
+change to <em>zxid:a</em> happened before <em>zxid:b</em>.</li>
+<li><strong>Version Numbers</strong>: Every change to a znode will cause an increase to one of the version
+numbers of that node.</li>
+<li><strong>Clock Time</strong>: ZooKeeper does not use clock time to make decisions, but it uses it to put
+timestamps into the <code>Stat</code> structure.</li>
+</ul>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.czxid" class="structfield small-section-header">
+                           <a href="#structfield.czxid" class="anchor field"></a>
+                           <span id="czxid.v" class='invisible'>
+                           <code>czxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>The transaction ID that created the znode.</p>
+</div><span id="structfield.mzxid" class="structfield small-section-header">
+                           <a href="#structfield.mzxid" class="anchor field"></a>
+                           <span id="mzxid.v" class='invisible'>
+                           <code>mzxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>The last transaction that modified the znode.</p>
+</div><span id="structfield.ctime" class="structfield small-section-header">
+                           <a href="#structfield.ctime" class="anchor field"></a>
+                           <span id="ctime.v" class='invisible'>
+                           <code>ctime: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>Milliseconds since epoch when the znode was created.</p>
+</div><span id="structfield.mtime" class="structfield small-section-header">
+                           <a href="#structfield.mtime" class="anchor field"></a>
+                           <span id="mtime.v" class='invisible'>
+                           <code>mtime: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>Milliseconds since epoch when the znode was last modified.</p>
+</div><span id="structfield.version" class="structfield small-section-header">
+                           <a href="#structfield.version" class="anchor field"></a>
+                           <span id="version.v" class='invisible'>
+                           <code>version: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code>
+                           </span></span><div class='docblock'><p>The number of changes to the data of the znode.</p>
+</div><span id="structfield.cversion" class="structfield small-section-header">
+                           <a href="#structfield.cversion" class="anchor field"></a>
+                           <span id="cversion.v" class='invisible'>
+                           <code>cversion: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code>
+                           </span></span><div class='docblock'><p>The number of changes to the children of the znode.</p>
+</div><span id="structfield.aversion" class="structfield small-section-header">
+                           <a href="#structfield.aversion" class="anchor field"></a>
+                           <span id="aversion.v" class='invisible'>
+                           <code>aversion: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code>
+                           </span></span><div class='docblock'><p>The number of changes to the ACL of the znode.</p>
+</div><span id="structfield.ephemeral_owner" class="structfield small-section-header">
+                           <a href="#structfield.ephemeral_owner" class="anchor field"></a>
+                           <span id="ephemeral_owner.v" class='invisible'>
+                           <code>ephemeral_owner: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>The session ID of the owner of this znode, if it is an ephemeral entry.</p>
+</div><span id="structfield.data_length" class="structfield small-section-header">
+                           <a href="#structfield.data_length" class="anchor field"></a>
+                           <span id="data_length.v" class='invisible'>
+                           <code>data_length: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code>
+                           </span></span><div class='docblock'><p>The length of the data field of the znode.</p>
+</div><span id="structfield.num_children" class="structfield small-section-header">
+                           <a href="#structfield.num_children" class="anchor field"></a>
+                           <span id="num_children.v" class='invisible'>
+                           <code>num_children: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a></code>
+                           </span></span><div class='docblock'><p>The number of children this znode has.</p>
+</div><span id="structfield.pzxid" class="structfield small-section-header">
+                           <a href="#structfield.pzxid" class="anchor field"></a>
+                           <span id="pzxid.v" class='invisible'>
+                           <code>pzxid: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a></code>
+                           </span></span><div class='docblock'><p>The transaction ID that last modified the children of the znode.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/data.rs.html#41-46' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.is_ephemeral' class="method"><span id='is_ephemeral.v' class='invisible'><code>pub fn <a href='#method.is_ephemeral' class='fnname'>is_ephemeral</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/data.rs.html#43-45' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Is the znode an ephemeral entry?</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/data.rs.html#15' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/data.rs.html#15' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "zookeeper";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

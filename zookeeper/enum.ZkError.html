@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ZkError` enum in crate `zookeeper`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ZkError">
+
+    <title>zookeeper::ZkError - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Enum ZkError</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>zookeeper</a></p><script>window.sidebarCurrent = {name: 'ZkError', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>zookeeper</a>::<wbr><a class="enum" href=''>ZkError</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/zookeeper/consts.rs.html#7-59' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum ZkError {
+    APIError,
+    AuthFailed,
+    BadArguments,
+    BadVersion,
+    ConnectionLoss,
+    DataInconsistency,
+    EphemeralOnLocalSession,
+    InvalidACL,
+    InvalidCallback,
+    MarshallingError,
+    NoAuth,
+    NoChildrenForEphemerals,
+    NodeExists,
+    NoNode,
+    NotEmpty,
+    NotReadOnly,
+    NoWatcher,
+    OperationTimeout,
+    RuntimeInconsistency,
+    SessionExpired,
+    SessionMoved,
+    SystemError,
+    Unimplemented,
+}</pre><div class='docblock'><p>Basic type for errors returned from the server.</p>
+</div><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.APIError" class="variant small-section-header"><a href="#variant.APIError" class="anchor field"></a><span id='APIError.v' class='invisible'><code>APIError</code></span></span><div class='docblock'><p>This code is never returned from the server. It should not be used other than to indicate a
+range. Specifically error codes greater than this value are API errors (while values less
+than this indicate a system error.</p>
+</div><span id="variant.AuthFailed" class="variant small-section-header"><a href="#variant.AuthFailed" class="anchor field"></a><span id='AuthFailed.v' class='invisible'><code>AuthFailed</code></span></span><div class='docblock'><p>Client authentication failed.</p>
+</div><span id="variant.BadArguments" class="variant small-section-header"><a href="#variant.BadArguments" class="anchor field"></a><span id='BadArguments.v' class='invisible'><code>BadArguments</code></span></span><div class='docblock'><p>Invalid arguments.</p>
+</div><span id="variant.BadVersion" class="variant small-section-header"><a href="#variant.BadVersion" class="anchor field"></a><span id='BadVersion.v' class='invisible'><code>BadVersion</code></span></span><div class='docblock'><p>Version conflict in <code>set</code> operation. In case of reconfiguration: reconfig requested from
+config version X but last seen config has a different version Y.</p>
+</div><span id="variant.ConnectionLoss" class="variant small-section-header"><a href="#variant.ConnectionLoss" class="anchor field"></a><span id='ConnectionLoss.v' class='invisible'><code>ConnectionLoss</code></span></span><div class='docblock'><p>Connection to the server has been lost.</p>
+</div><span id="variant.DataInconsistency" class="variant small-section-header"><a href="#variant.DataInconsistency" class="anchor field"></a><span id='DataInconsistency.v' class='invisible'><code>DataInconsistency</code></span></span><div class='docblock'><p>A data inconsistency was found.</p>
+</div><span id="variant.EphemeralOnLocalSession" class="variant small-section-header"><a href="#variant.EphemeralOnLocalSession" class="anchor field"></a><span id='EphemeralOnLocalSession.v' class='invisible'><code>EphemeralOnLocalSession</code></span></span><div class='docblock'><p>Attempt to create ephemeral node on a local session.</p>
+</div><span id="variant.InvalidACL" class="variant small-section-header"><a href="#variant.InvalidACL" class="anchor field"></a><span id='InvalidACL.v' class='invisible'><code>InvalidACL</code></span></span><div class='docblock'><p>Invalid <code>Acl</code> specified.</p>
+</div><span id="variant.InvalidCallback" class="variant small-section-header"><a href="#variant.InvalidCallback" class="anchor field"></a><span id='InvalidCallback.v' class='invisible'><code>InvalidCallback</code></span></span><div class='docblock'><p>Invalid callback specified.</p>
+</div><span id="variant.MarshallingError" class="variant small-section-header"><a href="#variant.MarshallingError" class="anchor field"></a><span id='MarshallingError.v' class='invisible'><code>MarshallingError</code></span></span><div class='docblock'><p>Error while marshalling or unmarshalling data.</p>
+</div><span id="variant.NoAuth" class="variant small-section-header"><a href="#variant.NoAuth" class="anchor field"></a><span id='NoAuth.v' class='invisible'><code>NoAuth</code></span></span><div class='docblock'><p>Not authenticated.</p>
+</div><span id="variant.NoChildrenForEphemerals" class="variant small-section-header"><a href="#variant.NoChildrenForEphemerals" class="anchor field"></a><span id='NoChildrenForEphemerals.v' class='invisible'><code>NoChildrenForEphemerals</code></span></span><div class='docblock'><p>Ephemeral nodes may not have children.</p>
+</div><span id="variant.NodeExists" class="variant small-section-header"><a href="#variant.NodeExists" class="anchor field"></a><span id='NodeExists.v' class='invisible'><code>NodeExists</code></span></span><div class='docblock'><p>Request to create node that already exists.</p>
+</div><span id="variant.NoNode" class="variant small-section-header"><a href="#variant.NoNode" class="anchor field"></a><span id='NoNode.v' class='invisible'><code>NoNode</code></span></span><div class='docblock'><p>Attempted to read a node that does not exist.</p>
+</div><span id="variant.NotEmpty" class="variant small-section-header"><a href="#variant.NotEmpty" class="anchor field"></a><span id='NotEmpty.v' class='invisible'><code>NotEmpty</code></span></span><div class='docblock'><p>The node has children.</p>
+</div><span id="variant.NotReadOnly" class="variant small-section-header"><a href="#variant.NotReadOnly" class="anchor field"></a><span id='NotReadOnly.v' class='invisible'><code>NotReadOnly</code></span></span><div class='docblock'><p>State-changing request is passed to read-only server.</p>
+</div><span id="variant.NoWatcher" class="variant small-section-header"><a href="#variant.NoWatcher" class="anchor field"></a><span id='NoWatcher.v' class='invisible'><code>NoWatcher</code></span></span><div class='docblock'><p>Attempt to remove a non-existing watcher.</p>
+</div><span id="variant.OperationTimeout" class="variant small-section-header"><a href="#variant.OperationTimeout" class="anchor field"></a><span id='OperationTimeout.v' class='invisible'><code>OperationTimeout</code></span></span><div class='docblock'><p>Operation timeout.</p>
+</div><span id="variant.RuntimeInconsistency" class="variant small-section-header"><a href="#variant.RuntimeInconsistency" class="anchor field"></a><span id='RuntimeInconsistency.v' class='invisible'><code>RuntimeInconsistency</code></span></span><div class='docblock'><p>A runtime inconsistency was found.</p>
+</div><span id="variant.SessionExpired" class="variant small-section-header"><a href="#variant.SessionExpired" class="anchor field"></a><span id='SessionExpired.v' class='invisible'><code>SessionExpired</code></span></span><div class='docblock'><p>The session has been expired by the server.</p>
+</div><span id="variant.SessionMoved" class="variant small-section-header"><a href="#variant.SessionMoved" class="anchor field"></a><span id='SessionMoved.v' class='invisible'><code>SessionMoved</code></span></span><div class='docblock'><p>Session moved to another server, so operation is ignored.</p>
+</div><span id="variant.SystemError" class="variant small-section-header"><a href="#variant.SystemError" class="anchor field"></a><span id='SystemError.v' class='invisible'><code>SystemError</code></span></span><div class='docblock'><p>System and server-side errors. This is never thrown by the server, it shouldn&#39;t be used
+other than to indicate a range. Specifically error codes greater than this value, but lesser
+than <code>APIError</code>, are system errors.</p>
+</div><span id="variant.Unimplemented" class="variant small-section-header"><a href="#variant.Unimplemented" class="anchor field"></a><span id='Unimplemented.v' class='invisible'><code>Unimplemented</code></span></span><div class='docblock'><p>Operation is unimplemented.</p>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 id='impl-From&lt;i32&gt;' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt; for <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code><a href='#impl-From&lt;i32&gt;' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5-1' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(val: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-Error' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a> for <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code><a href='#impl-Error' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5-1' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.description' class="method"><span id='description.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description' class='fnname'>description</a>(&amp;self) -&gt; &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
+</div><h4 id='method.cause' class="method"><span id='cause.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">Error</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/error.rs.html#153' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>The lower-level cause of this error, if any. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause">Read more</a></p>
+</div></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#5' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Rhs) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/cmp.rs.html#121' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 id='impl-Display' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="enum" href="../zookeeper/enum.ZkError.html" title="enum zookeeper::ZkError">ZkError</a></code><a href='#impl-Display' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#61-65' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/consts.rs.html#62-64' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "zookeeper";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

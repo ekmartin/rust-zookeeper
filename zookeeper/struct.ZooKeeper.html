@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ZooKeeper` struct in crate `zookeeper`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ZooKeeper">
+
+    <title>zookeeper::ZooKeeper - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct ZooKeeper</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>zookeeper</a></p><script>window.sidebarCurrent = {name: 'ZooKeeper', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>zookeeper</a>::<wbr><a class="struct" href=''>ZooKeeper</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#34-39' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ZooKeeper { /* fields omitted */ }</pre><div class='docblock'><p>The client interface for interacting with a ZooKeeper cluster.</p>
+</div>
+                    <h2 id='methods' class='small-section-header'>
+                      Methods<a href='#methods' class='anchor'></a>
+                    </h2>
+                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../zookeeper/struct.ZooKeeper.html" title="struct zookeeper::ZooKeeper">ZooKeeper</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#41-500' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.connect' class="method"><span id='connect.v' class='invisible'><code>pub fn <a href='#method.connect' class='fnname'>connect</a>&lt;W&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;connect_string: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;timeout: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/duration/struct.Duration.html" title="struct std::time::duration::Duration">Duration</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;watcher: W<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="../zookeeper/struct.ZooKeeper.html" title="struct zookeeper::ZooKeeper">ZooKeeper</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;W: <a class="trait" href="../zookeeper/trait.Watcher.html" title="trait zookeeper::Watcher">Watcher</a> + 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#62-85' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Connect to a ZooKeeper cluster.</p>
+
+<ul>
+<li><code>connect_string</code>: comma separated host:port pairs, each corresponding to a zk server,
+e.g. <code>&quot;127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002&quot;</code> If the optional chroot suffix is
+used the example would look like: <code>&quot;127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002/app/a&quot;</code>
+where the client would be rooted at <code>&quot;/app/a&quot;</code> and all paths would be relative to this
+root -- ie getting/setting/etc...<code>&quot;/foo/bar&quot;</code> would result in operations being run on
+<code>&quot;/app/a/foo/bar&quot;</code> (from the server perspective).</li>
+<li><code>timeout</code>: session timeout -- how long should a client go without receiving communication
+from a server before considering it connection loss?</li>
+<li><code>watcher</code>: a watcher object to be notified of connection state changes.</li>
+</ul>
+</div><h4 id='method.add_auth' class="method"><span id='add_auth.v' class='invisible'><code>pub fn <a href='#method.add_auth' class='fnname'>add_auth</a>&lt;S:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html" title="trait alloc::string::ToString">ToString</a>&gt;(&amp;self, scheme: S, auth: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#194-204' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Add the specified <code>scheme</code>:<code>auth</code> information to this connection.</p>
+
+<p>See <code>Acl</code> for more information.</p>
+</div><h4 id='method.create' class="method"><span id='create.v' class='invisible'><code>pub fn <a href='#method.create' class='fnname'>create</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;data: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;acl: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../zookeeper/struct.Acl.html" title="struct zookeeper::Acl">Acl</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;mode: <a class="enum" href="../zookeeper/enum.CreateMode.html" title="enum zookeeper::CreateMode">CreateMode</a><br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#229-245' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Create a node with the given <code>path</code>. The node data will be the given <code>data</code>, and node ACL
+will be the given <code>acl</code>. The <code>mode</code> argument specifies the behavior of the created node (see
+<code>CreateMode</code> for more information).</p>
+
+<p>This operation, if successful, will trigger all the watches left on the node of the given
+path by <code>exists</code> and <code>get_data</code> API calls, and the watches left on the parent node by
+<code>get_children</code> API calls.</p>
+
+<h1 id='errors' class='section-header'><a href='#errors'>Errors</a></h1>
+<p>If a node with the same actual path already exists in the ZooKeeper, the result will have
+<code>Err(ZkError::NodeExists)</code>. Note that since a different actual path is used for each
+invocation of creating sequential node with the same path argument, the call should never
+error in this manner.</p>
+
+<p>If the parent node does not exist in the ZooKeeper, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+
+<p>An ephemeral node cannot have children. If the parent node of the given path is ephemeral,
+<code>Err(ZkError::NoChildrenForEphemerals)</code> will be returned.</p>
+
+<p>If the <code>acl</code> is invalid or empty, <code>Err(ZkError::InvalidACL)</code> is returned.</p>
+
+<p>The maximum allowable size of the data array is 1 MiB (1,048,576 bytes). Arrays larger than
+this will return <code>Err(ZkError::BadArguments)</code>.</p>
+</div><h4 id='method.delete' class="method"><span id='delete.v' class='invisible'><code>pub fn <a href='#method.delete' class='fnname'>delete</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, version: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#262-271' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Delete the node with the given <code>path</code>. The call will succeed if such a node exists, and the
+given <code>version</code> matches the node&#39;s version (if the given version is <code>None</code>, it matches any
+node&#39;s versions).</p>
+
+<p>This operation, if successful, will trigger all the watches on the node of the given path
+left by <code>exists</code> API calls, watches left by <code>get_data</code> API calls, and the watches on the
+parent node left by <code>get_children</code> API calls.</p>
+
+<h1 id='errors-1' class='section-header'><a href='#errors-1'>Errors</a></h1>
+<p>If the nodes does not exist, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+
+<p>If the given <code>version</code> does not match the node&#39;s version, <code>Err(ZkError::BadVersion)</code> will be
+returned.</p>
+
+<p>If the node has children, <code>Err(ZkError::NotEmpty)</code> will be returned.</p>
+</div><h4 id='method.exists' class="method"><span id='exists.v' class='invisible'><code>pub fn <a href='#method.exists' class='fnname'>exists</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, watch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#278-289' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the <code>Stat</code> of the node of the given <code>path</code> or <code>None</code> if no such node exists.</p>
+
+<p>If the <code>watch</code> is <code>true</code> and the call is successful (no error is returned), a watch will be
+left on the node with the given path. The watch will be triggered by a successful operation
+that creates/delete the node or sets the data on the node.</p>
+</div><h4 id='method.exists_w' class="method"><span id='exists_w.v' class='invisible'><code>pub fn <a href='#method.exists_w' class='fnname'>exists_w</a>&lt;W:&nbsp;<a class="trait" href="../zookeeper/trait.Watcher.html" title="trait zookeeper::Watcher">Watcher</a> + 'static&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;watcher: W<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#295-318' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the <code>Stat</code> of the node of the given <code>path</code> or <code>None</code> if no such node exists.</p>
+
+<p>Similar to <code>exists</code>, but sets an explicit <code>Watcher</code> instead of relying on the client&#39;s base
+<code>Watcher</code>.</p>
+</div><h4 id='method.get_acl' class="method"><span id='get_acl.v' class='invisible'><code>pub fn <a href='#method.get_acl' class='fnname'>get_acl</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../zookeeper/struct.Acl.html" title="struct zookeeper::Acl">Acl</a>&gt;, <a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#324-330' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the ACL and <code>Stat</code> of the node of the given path.</p>
+
+<h1 id='errors-2' class='section-header'><a href='#errors-2'>Errors</a></h1>
+<p>If no node with the given path exists, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+</div><h4 id='method.set_acl' class="method"><span id='set_acl.v' class='invisible'><code>pub fn <a href='#method.set_acl' class='fnname'>set_acl</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;acl: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../zookeeper/struct.Acl.html" title="struct zookeeper::Acl">Acl</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#340-350' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set the ACL for the node of the given path if such a node exists and the given version
+matches the version of the node. Return the <code>Stat</code> of the node.</p>
+
+<h1 id='errors-3' class='section-header'><a href='#errors-3'>Errors</a></h1>
+<p>If no node with the given path exists, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+
+<p>If the given version does not match the node&#39;s version, <code>Err(ZkError::BadVersion)</code> will be
+returned.</p>
+</div><h4 id='method.get_children' class="method"><span id='get_children.v' class='invisible'><code>pub fn <a href='#method.get_children' class='fnname'>get_children</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, watch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#365-377' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the list of the children of the node of the given <code>path</code>. The returned values are not
+prefixed with the provided <code>path</code>; i.e. if the database contains <code>/path/a</code> and <code>/path/b</code>,
+the result of <code>get_children</code> for <code>&quot;/path&quot;</code> will be <code>[&quot;a&quot;, &quot;b&quot;]</code>.</p>
+
+<p>If the <code>watch</code> is <code>true</code> and the call is successful (no error is returned), a watch will be
+left on the node with the given path. The watch will be triggered by a successful operation
+that deletes the node of the given path or creates/delete a child under the node.</p>
+
+<p>The list of children returned is not sorted and no guarantee is provided as to its natural
+or lexical order.</p>
+
+<h1 id='errors-4' class='section-header'><a href='#errors-4'>Errors</a></h1>
+<p>If no node with the given path exists, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+</div><h4 id='method.get_children_w' class="method"><span id='get_children_w.v' class='invisible'><code>pub fn <a href='#method.get_children_w' class='fnname'>get_children_w</a>&lt;W:&nbsp;<a class="trait" href="../zookeeper/trait.Watcher.html" title="trait zookeeper::Watcher">Watcher</a> + 'static&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;watcher: W<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#383-404' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the list of the children of the node of the given <code>path</code>.</p>
+
+<p>Similar to <code>get_children</code>, but sets an explicit <code>Watcher</code> instead of relying on the client&#39;s
+base <code>Watcher</code>.</p>
+</div><h4 id='method.get_data' class="method"><span id='get_data.v' class='invisible'><code>pub fn <a href='#method.get_data' class='fnname'>get_data</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, watch: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#414-423' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the data and the <code>Stat</code> of the node of the given path.</p>
+
+<p>If <code>watch</code> is <code>true</code> and the call is successful (no error is returned), a watch will be left
+on the node with the given path. The watch will be triggered by a successful operation that
+sets data on the node, or deletes the node.</p>
+
+<h1 id='errors-5' class='section-header'><a href='#errors-5'>Errors</a></h1>
+<p>If no node with the given path exists, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+</div><h4 id='method.get_data_w' class="method"><span id='get_data_w.v' class='invisible'><code>pub fn <a href='#method.get_data_w' class='fnname'>get_data_w</a>&lt;W:&nbsp;<a class="trait" href="../zookeeper/trait.Watcher.html" title="trait zookeeper::Watcher">Watcher</a> + 'static&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;watcher: W<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a><a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#429-450' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Return the data and the <code>Stat</code> of the node of the given path.</p>
+
+<p>Similar to <code>get_data</code>, but sets an explicit <code>Watcher</code> instead of relying on the client&#39;s
+base <code>Watcher</code>.</p>
+</div><h4 id='method.set_data' class="method"><span id='set_data.v' class='invisible'><code>pub fn <a href='#method.set_data' class='fnname'>set_data</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;data: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;version: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;<br>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="struct" href="../zookeeper/struct.Stat.html" title="struct zookeeper::Stat">Stat</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#467-477' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Set the data for the node of the given <code>path</code> if such a node exists and the given version
+matches the version of the node (if the given version is <code>None</code>, it matches any node&#39;s
+versions). Return the <code>Stat</code> of the node.</p>
+
+<p>This operation, if successful, will trigger all the watches on the node of the given <code>path</code>
+left by <code>get_data</code> calls.</p>
+
+<h1 id='errors-6' class='section-header'><a href='#errors-6'>Errors</a></h1>
+<p>If no node with the given <code>path</code> exists, <code>Err(ZkError::NoNode)</code> will be returned.</p>
+
+<p>If the given version does not match the node&#39;s version, <code>Err(ZkError::BadVersion)</code> will be
+returned.</p>
+
+<p>The maximum allowable size of the <code>data</code> array is 1 MiB (1,048,576 bytes). Arrays larger
+than this will return <code>Err(ZkError::BadArguments)</code>.</p>
+</div><h4 id='method.add_listener' class="method"><span id='add_listener.v' class='invisible'><code>pub fn <a href='#method.add_listener' class='fnname'>add_listener</a>&lt;Listener:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="enum" href="../zookeeper/enum.ZkState.html" title="enum zookeeper::ZkState">ZkState</a>) + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;listener: Listener<br>) -&gt; <a class="struct" href="../zookeeper/struct.Subscription.html" title="struct zookeeper::Subscription">Subscription</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#481-485' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Adds a state change <code>Listener</code>, which will be notified of changes to the client&#39;s <code>ZkState</code>.
+A unique identifier is returned, which is used in <code>remove_listener</code> to un-subscribe.</p>
+</div><h4 id='method.remove_listener' class="method"><span id='remove_listener.v' class='invisible'><code>pub fn <a href='#method.remove_listener' class='fnname'>remove_listener</a>(&amp;self, sub: <a class="struct" href="../zookeeper/struct.Subscription.html" title="struct zookeeper::Subscription">Subscription</a>)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#488-490' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Removes a state change <code>Listener</code> and closes the channel.</p>
+</div><h4 id='method.close' class="method"><span id='close.v' class='invisible'><code>pub fn <a href='#method.close' class='fnname'>close</a>(&amp;self) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#495-499' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Close this client object. Once the client is closed, its session becomes invalid. All the
+ephemeral nodes in the ZooKeeper server associated with the session will be removed. The
+watches left on those nodes (and on their parents) will be triggered.</p>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Drop' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html" title="trait core::ops::drop::Drop">Drop</a> for <a class="struct" href="../zookeeper/struct.ZooKeeper.html" title="struct zookeeper::ZooKeeper">ZooKeeper</a></code><a href='#impl-Drop' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#502-508' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.drop' class="method"><span id='drop.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper.rs.html#503-507' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Executes the destructor for this type. <a href="https://doc.rust-lang.org/nightly/core/ops/drop/trait.Drop.html#tymethod.drop">Read more</a></p>
+</div></div><h3 id='impl-ZooKeeperExt' class='impl'><span class='in-band'><code>impl <a class="trait" href="../zookeeper/trait.ZooKeeperExt.html" title="trait zookeeper::ZooKeeperExt">ZooKeeperExt</a> for <a class="struct" href="../zookeeper/struct.ZooKeeper.html" title="struct zookeeper::ZooKeeper">ZooKeeper</a></code><a href='#impl-ZooKeeperExt' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper_ext.rs.html#13-30' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.ensure_path' class="method"><span id='ensure_path.v' class='invisible'><code>fn <a href='../zookeeper/trait.ZooKeeperExt.html#tymethod.ensure_path' class='fnname'>ensure_path</a>(&amp;self, path: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="type" href="../zookeeper/type.ZkResult.html" title="type zookeeper::ZkResult">ZkResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/zookeeper/zookeeper_ext.rs.html#14-29' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Ensure that <code>path</code> exists and create all potential paths leading up to it if it does not. This operates in a manner similar to <code>mkdir -p</code>. <a href="../zookeeper/trait.ZooKeeperExt.html#tymethod.ensure_path">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "zookeeper";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
